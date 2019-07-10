@@ -11,8 +11,10 @@ To match poses that correspond to the same person across frames, we also provide
 
 
 ## News!
+- Apr 2019: [**MXNet** version](https://github.com/MVIG-SJTU/AlphaPose/tree/mxnet) of AlphaPose is released! It runs at **23 fps** on COCO validation set using a single Nvidia 1080Ti GPU!
+- Feb 2019: [CrowdPose](https://github.com/MVIG-SJTU/AlphaPose/blob/pytorch/doc/CrowdPose.md) is integrated into AlphaPose Now!
 - Dec 2018: [General version](https://github.com/MVIG-SJTU/AlphaPose/tree/master/PoseFlow) of PoseFlow is released! 3X Faster and support pose tracking results visualization!
-- Sep 2018: [**PyTorch** version](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch) of AlphaPose is released! It runs at **20 fps** on COCO validation set (4.6 people per image on average) and achieves 71 mAP!
+- Sep 2018: [**PyTorch** version](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch) of AlphaPose is released! It runs at **20 fps** on COCO validation set (4.6 people per image on average) and achieves 71 mAP using a single Nvidia 1080Ti GPU!
 
 ## Contents
 - [AlphaPose](#alphapose)
@@ -21,6 +23,7 @@ To match poses that correspond to the same person across frames, we also provide
 - [Results](#results)
   - [Pose Estimation](#pose-estimation)
   - [Pose Tracking](#pose-tracking)
+  - [CrowdPose](#crowdpose)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Output](#output)
@@ -91,7 +94,38 @@ Results on PoseTrack Challenge validation set:
 
 *Note: Please read [PoseFlow/README.md](PoseFlow/) for details.*
 
+### CrowdPose
+<p align='center'>
+    <img src="doc/crowdpose.gif", width="360">
+</p>
+
+**Results on CrowdPose Validation:**
+
+*Compare with state-of-the-art methods*
+<center>
+
+| Method | AP @0.5:0.95 | AP @0.5 | AP @0.75 | AR @0.5:0.95 | AR @0.5 | AR @0.75 |
+|:-------|:-----:|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Detectron (Mask R-CNN) | 57.2 | 83.5 | 60.3 | 65.9 | 89.3 | 69.4 |
+| Simple Pose (Xiao *et al.*) | 60.8 | 81.4 | 65.7 | 67.3 | 86.3 | 71.8 |
+| **Ours** | **66.0** | **84.2** | **71.5** | **72.7** | **89.5** | **77.5** |
+
+</center>
+
+*Compare with open-source systems*
+<center>
+
+| Method | AP @*Easy* | AP @*Medium* | AP @*Hard* | FPS |
+|:-------|:-----:|:-------:|:-------:|:-------:|
+| OpenPose (CMU-Pose) | 62.7 | 48.7 | 32.3 | 5.3 |
+| Detectron (Mask R-CNN) | 69.4 | 57.9 | 45.8 | 2.9 |
+| **Ours** ([**PyTorch** branch](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch)) | **75.5** | **66.3** | **57.4** | **10.1** |
+
+*Note: Please read [doc/CrowdPose.md](https://github.com/MVIG-SJTU/AlphaPose/blob/pytorch/doc/CrowdPose.md) for details.*
+
 ## Installation
+***Note: For new users or users that are not familiar with TensorFlow or Torch, we suggest using the [**PyTorch** version](https://github.com/MVIG-SJTU/AlphaPose/tree/pytorch) since it's more user-friendly and runs faster.***
+
 1. Get the code and build related modules.
   ```Shell
   git clone https://github.com/MVIG-SJTU/AlphaPose.git
@@ -171,4 +205,4 @@ Please cite these papers in your publications if it helps your research:
 
 
 ## License
-AlphaPose is freely available for free non-commercial use, and may be redistributed under these conditions. For commercial queries, contact [Cewu Lu](http://www.mvig.org/)
+AlphaPose is freely available for free non-commercial use, and may be redistributed under these conditions. For commercial queries, please drop an e-mail at mvig.alphapose[at]gmail[dot]com and cc lucewu[[at]sjtu[dot]edu[dot]cn. We will send the detail agreement to you.
